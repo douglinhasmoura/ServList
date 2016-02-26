@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ServList</string>
+    <string name="action_settings">Settings</string>
+    <string name="frase_impacto">Conectando Clientes com Serviços</string>
+    <string name="title_activity_activity_login">ActivityLogin</string>
+    <string name="titulo_apresentacao">Você é um empreendedor ou procura um profissional?</string>
+    <string name="btn_empreendedor">EMPREENDEDOR</string>
+    <string name="btn_profissional">PROFISSIONAL</string>
+    <string name="btn_conta">JÁ POSSUI UMA CONTA?</string>
+    <string name="title_activity_act_empreendedor">actEmpreendedor</string>
+</resources>
