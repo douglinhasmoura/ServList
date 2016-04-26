@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\dougl\Desktop\ServList\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0c3e81d3eb86b86d194b5cdb6a4de78203f6f7fd">
+        <dex dex="C:\Users\dougl\Desktop\ServList\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-8.3.0_af7a03caabccd2acaccdb3783f6116972f9a2937.jar" />
+    </item>
+
+</items>
