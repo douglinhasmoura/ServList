@@ -1,0 +1,2550 @@
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(revision )
++++ .idea/compiler.xml	(revision )
+@@ -0,0 +1,22 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <resourceExtensions />
++    <wildcardResourcePatterns>
++      <entry name="!?*.java" />
++      <entry name="!?*.form" />
++      <entry name="!?*.class" />
++      <entry name="!?*.groovy" />
++      <entry name="!?*.scala" />
++      <entry name="!?*.flex" />
++      <entry name="!?*.kt" />
++      <entry name="!?*.clj" />
++      <entry name="!?*.aj" />
++    </wildcardResourcePatterns>
++    <annotationProcessing>
++      <profile default="true" name="Default" enabled="false">
++        <processorPath useClasspath="true" />
++      </profile>
++    </annotationProcessing>
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/java/com/br/servlist/ActEndereco.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/br/servlist/ActEndereco.java	(revision )
++++ app/src/main/java/com/br/servlist/ActEndereco.java	(revision )
+@@ -0,0 +1,29 @@
++package com.br.servlist;
++
++import android.os.Bundle;
++import android.support.design.widget.FloatingActionButton;
++import android.support.design.widget.Snackbar;
++import android.support.v7.app.AppCompatActivity;
++import android.support.v7.widget.Toolbar;
++import android.view.View;
++
++public class ActEndereco extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.act_endereco);
++        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
++        setSupportActionBar(toolbar);
++
++        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
++        fab.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
++                        .setAction("Action", null).show();
++            }
++        });
++    }
++
++}
+Index: app/src/main/java/com/br/servlist/SplashFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/br/servlist/SplashFragment.java	(revision )
++++ app/src/main/java/com/br/servlist/SplashFragment.java	(revision )
+@@ -0,0 +1,22 @@
++package com.br.servlist;
++
++import android.app.Fragment;
++import android.widget.TextView;
++
++import com.facebook.CallbackManager;
++import com.facebook.login.widget.LoginButton;
++
++/**
++ * Created by dougl on 17/04/2016.
++ */
++public class SplashFragment extends Fragment {
++
++    private LoginButton loginButton;
++    private TextView skipLoginButton;
++    private SkipLoginCallback skipLoginCallback;
++    private CallbackManager callbackManager;
++
++    public interface SkipLoginCallback {
++        void onSkipLoginPressed();
++    }
++}
+Index: app/proguard-rules.pro
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/proguard-rules.pro	(revision )
++++ app/proguard-rules.pro	(revision )
+@@ -0,0 +1,17 @@
++# Add project specific ProGuard rules here.
++# By default, the flags in this file are appended to flags specified
++# in C:\Users\dougl\AppData\Local\Android\sdk3/tools/proguard/proguard-android.txt
++# You can edit the include path and order by changing the proguardFiles
++# directive in build.gradle.
++#
++# For more details, see
++#   http://developer.android.com/guide/developing/tools/proguard.html
++
++# Add any project specific keep options here:
++
++# If your project uses WebView with JS, uncomment the following
++# and specify the fully qualified class name to the JavaScript interface
++# class:
++#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
++#   public *;
++#}
+Index: app/src/main/java/com/br/servlist/ActLoginEmail.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/br/servlist/ActLoginEmail.java	(revision )
++++ app/src/main/java/com/br/servlist/ActLoginEmail.java	(revision )
+@@ -0,0 +1,42 @@
++package com.br.servlist;
++
++import android.app.ActionBar;
++import android.os.Bundle;
++import android.support.design.widget.FloatingActionButton;
++import android.support.design.widget.Snackbar;
++import android.support.v4.app.NavUtils;
++import android.support.v7.app.AppCompatActivity;
++import android.support.v7.widget.Toolbar;
++import android.view.Menu;
++import android.view.MenuItem;
++import android.view.View;
++
++public class ActLoginEmail extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.act_login_email);
++        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
++        setSupportActionBar(toolbar);
++
++        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
++
++    }
++
++    @Override
++    public boolean onOptionsItemSelected(MenuItem item){
++        switch (item.getItemId()) {
++            // Respond to the action bar's Up/Home button
++            case android.R.id.home:
++                finish();
++                return true;
++        }
++        return super.onOptionsItemSelected(item);
++    }
++
++    public boolean onCreateOptionsMenu(Menu menu){
++        return true;
++    }
++
++}
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .gitignore	(revision )
++++ .gitignore	(revision )
+@@ -0,0 +1,7 @@
++.gradle
++/local.properties
++/.idea/workspace.xml
++/.idea/libraries
++.DS_Store
++/build
++/captures
+Index: app/src/main/java/com/br/servlist/actCad_EmpValidarCpfCnpj.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/br/servlist/actCad_EmpValidarCpfCnpj.java	(revision )
++++ app/src/main/java/com/br/servlist/actCad_EmpValidarCpfCnpj.java	(revision )
+@@ -0,0 +1,147 @@
++package com.br.servlist;
++
++import android.app.ProgressDialog;
++import android.content.Context;
++import android.content.Intent;
++import android.os.Bundle;
++import android.support.design.widget.FloatingActionButton;
++import android.support.v7.app.AppCompatActivity;
++import android.view.View;
++import android.widget.EditText;
++import android.widget.TabHost;
++
++import com.github.pierry.simpletoast.SimpleToast;
++
++public class actCad_EmpValidarCpfCnpj extends AppCompatActivity  {
++
++
++    private EditText cnpj, cpf, nomeCpf, nomeCnpj;
++    private FloatingActionButton btnProxCnpj, btnProxCpf;
++    private ProgressDialog dialog;
++    private TabHost abas= null;
++    boolean resCNPJ = false;
++
++
++
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.act_cad_emp_nome_cnpj);
++
++
++        abas = (TabHost)findViewById(R.id.tabhost);
++        abas.setup();
++
++        TabHost.TabSpec descritor = abas.newTabSpec("CNPJ");
++        descritor.setContent(R.id.tab_cnpj);
++        descritor.setIndicator(getString(R.string.tab_cnpj));
++        abas.addTab(descritor);
++
++        descritor = abas.newTabSpec("CPF");
++        descritor.setContent(R.id.tab_cpf);
++        descritor.setIndicator(getString(R.string.tab_cpf));
++        abas.addTab(descritor);
++        
++
++        cnpj = (EditText) findViewById(R.id.cnpj);
++        cpf = (EditText) findViewById(R.id.cpf);
++        nomeCnpj = (EditText) findViewById(R.id.nome_empresa_cnpj);
++        nomeCpf = (EditText)findViewById(R.id.nome_empresa_cpf);
++        btnProxCnpj = (FloatingActionButton) findViewById(R.id.fab_cnpj);
++        btnProxCpf = (FloatingActionButton)findViewById(R.id.fab_cpf);
++
++
++        btnProxCnpj.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++
++
++                //validando CNPJ
++
++                Context context = getApplicationContext();
++
++                Validacoes validacoes = new Validacoes();
++                //validda se os campos estão vazios
++
++                if(nomeCnpj.getText().toString().length() == 0) {
++                    nomeCnpj.setError("NOME INVÁLIDO");
++                }
++                if(cnpj.getText().toString().length() == 0) {
++                    cnpj.setError("CNPJ INVÁLIDO");
++                }
++                else {
++
++
++                    dialog = ProgressDialog.show(actCad_EmpValidarCpfCnpj.this, "Validando", "Aguarde ...", false);
++                    resCNPJ = validacoes.isCnpj(cnpj.getText().toString());
++
++                    //se for vdd valida e deixa passar para a próxima página
++                    if (resCNPJ == true) {
++
++                        cpf.setEnabled(false);
++                        SimpleToast.ok(context, "CNPJ VALIDADO COM SUCESSO");
++
++
++                        dialog.dismiss();
++                        Intent intent = new Intent(actCad_EmpValidarCpfCnpj.this, actEmailSenha.class);
++                        startActivity(intent);
++
++                    } else { //se não cnpj inválido e não deixa passar.
++
++                        SimpleToast.error(context, "CNPJ INVÁLIDO", "{fa-exclamation-circle}");
++                        dialog.dismiss();
++                    }
++
++                }
++
++                }
++
++
++        });
++
++        btnProxCpf.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++
++                boolean resCpf = false;
++                Context context = getApplicationContext();
++                Validacoes validacoes = new Validacoes();
++
++                if(nomeCpf.getText().toString().length() == 0) {
++                    nomeCpf.setError("NOME INVÁLIDO");
++                }
++                if(cpf.getText().toString().length() == 0) {
++                    cpf.setError("CPF INVÁLIDO");
++                }
++                else {
++
++
++                    dialog = ProgressDialog.show(actCad_EmpValidarCpfCnpj.this, "Validando", "Aguarde ...", false);
++                    resCpf = validacoes.isCPF(cpf.getText().toString());
++
++                    //se for vdd valida e deixa passar para a próxima página
++                    if (resCpf == true) {
++
++                        SimpleToast.ok(context, "CPF VALIDADO COM SUCESSO");
++
++
++                        dialog.dismiss();
++                        Intent intent = new Intent(actCad_EmpValidarCpfCnpj.this, actEmailSenha.class);
++                        startActivity(intent);
++
++                    } else { //se não cnpj inválido e não deixa passar.
++
++                        SimpleToast.error(context, "CPF INVÁLIDO", "{fa-exclamation-circle}");
++                        dialog.dismiss();
++                    }
++
++                }
++
++            }
++
++        });
++
++    }
++
++}
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision )
++++ app/build.gradle	(revision )
+@@ -0,0 +1,42 @@
++apply plugin: 'com.android.application'
++apply plugin: 'com.google.gms.google-services'
++
++android {
++    compileSdkVersion 23
++    buildToolsVersion "23.0.1"
++    useLibrary 'org.apache.http.legacy'
++
++    defaultConfig {
++        applicationId "com.br.servlist"
++        minSdkVersion 15
++        targetSdkVersion 23
++        versionCode 1
++        versionName "1.0"
++    }
++    buildTypes {
++        release {
++            minifyEnabled false
++            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
++        }
++    }
++}
++
++repositories {
++    mavenCentral()
++    maven {
++        url "https://jitpack.io"
++    }
++}
++
++dependencies {
++    compile fileTree(dir: 'libs', include: ['*.jar'])
++    testCompile 'junit:junit:4.12'
++    compile 'com.android.support:appcompat-v7:23.0.1'
++    compile 'com.android.support:design:23.0.1'
++    compile 'com.android.support:cardview-v7:23.1.0'
++    compile 'org.apache.httpcomponents:httpclient:4.5'
++    compile 'com.github.Pierry:SimpleToast:v1.9'
++    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
++    compile 'com.google.android.gms:play-services-auth:8.3.0'
++    compile 'com.google.android.gms:play-services-appindexing:8.3.0'
++}
+Index: .idea/inspectionProfiles/Project_Default.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/inspectionProfiles/Project_Default.xml	(revision )
++++ .idea/inspectionProfiles/Project_Default.xml	(revision )
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <profile version="1.0">
++    <option name="myName" value="Project Default" />
++    <inspection_tool class="AndroidLintUnusedAttribute" enabled="false" level="WARNING" enabled_by_default="false" />
++  </profile>
++</component>
+\ No newline at end of file
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/colors.xml	(revision )
++++ app/src/main/res/values/colors.xml	(revision )
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="colorPrimary">#3F51B5</color>
++    <color name="colorPrimaryDark">#303F9F</color>
++    <color name="colorAccent">#FF4081</color>
++</resources>
+Index: .idea/copyright/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/copyright/profiles_settings.xml	(revision )
++++ .idea/copyright/profiles_settings.xml	(revision )
+@@ -0,0 +1,3 @@
++<component name="CopyrightManager">
++  <settings default="" />
++</component>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(revision )
++++ .idea/vcs.xml	(revision )
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="$PROJECT_DIR$/volley" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/runConfigurations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/runConfigurations.xml	(revision )
++++ .idea/runConfigurations.xml	(revision )
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RunConfigurationProducerService">
++    <option name="ignoredProducers">
++      <set>
++        <option value="org.jetbrains.plugins.gradle.execution.test.runner.AllInPackageGradleConfigurationProducer" />
++        <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestClassGradleConfigurationProducer" />
++        <option value="org.jetbrains.plugins.gradle.execution.test.runner.TestMethodGradleConfigurationProducer" />
++      </set>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/layout/act_cad_emp_nome_cnpj.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/act_cad_emp_nome_cnpj.xml	(revision )
++++ app/src/main/res/layout/act_cad_emp_nome_cnpj.xml	(revision )
+@@ -0,0 +1,150 @@
++<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
++    android:id="@+id/tabhost"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical">
++
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:orientation="vertical">
++
++        <TabWidget
++            android:id="@android:id/tabs"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"></TabWidget>
++
++            <FrameLayout
++                android:id="@android:id/tabcontent"
++                android:layout_width="match_parent"
++                android:layout_height="match_parent">
++
++                <LinearLayout
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent"
++                    android:id="@+id/tab_cnpj"
++                    android:orientation="vertical">
++
++                    <TextView
++                        android:layout_width="match_parent"
++                        android:layout_height="match_parent"
++                        android:text="ADICIONE O NOME DA SUA EMPRESA E O SEU CNPJ"
++                        android:padding="16dp"
++                        android:textAlignment="center"
++                        android:textSize="22sp"/>
++
++                    <android.support.design.widget.TextInputLayout
++                        android:layout_width="match_parent"
++                        android:padding="16dp"
++                        android:layout_height="wrap_content">
++
++                        <EditText
++                            android:id="@+id/nome_empresa_cnpj"
++                            android:layout_width="match_parent"
++                            android:layout_height="wrap_content"
++                            android:padding="16dp"
++                            android:singleLine="true"
++                            android:inputType="textCapWords"
++                            android:maxLength="50"
++                            android:hint="Digite o nome da sua empresa" />
++
++                    </android.support.design.widget.TextInputLayout>
++
++                    <android.support.design.widget.TextInputLayout
++                        android:layout_width="match_parent"
++                        android:padding="16dp"
++                        android:layout_height="wrap_content">
++
++                        <EditText
++                            android:id="@+id/cnpj"
++                            android:layout_width="match_parent"
++                            android:padding="16dp"
++                            android:layout_height="wrap_content"
++                            android:hint="Digite seu CNPJ"
++                            android:maxLength="14"
++                            android:inputType="number"/>
++
++                    </android.support.design.widget.TextInputLayout>
++
++                    <android.support.design.widget.FloatingActionButton
++                        android:id="@+id/fab_cnpj"
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:layout_gravity="center"
++                        android:layout_margin="@dimen/fab_margin"
++                        android:src="@mipmap/ic_next" />
++
++
++
++                </LinearLayout>
++
++                <LinearLayout
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent"
++                    android:id="@+id/tab_cpf"
++
++                    android:orientation="vertical">
++
++                <TextView
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent"
++                    android:text="ADICIONE O NOME DA SUA EMPRESA E O SEU CPF"
++                    android:padding="16dp"
++                    android:textAlignment="center"
++                    android:textSize="22sp"/>
++
++
++                    <android.support.design.widget.TextInputLayout
++                        android:layout_width="match_parent"
++                        android:padding="16dp"
++                        android:layout_height="wrap_content">
++
++                        <EditText
++                            android:id="@+id/nome_empresa_cpf"
++                            android:layout_width="match_parent"
++                            android:layout_height="wrap_content"
++                            android:padding="16dp"
++                            android:maxLength="50"
++                            android:singleLine="true"
++                            android:inputType="textCapWords"
++                            android:hint="Digite o seu nome" />
++
++                    </android.support.design.widget.TextInputLayout>
++
++                    <android.support.design.widget.TextInputLayout
++                        android:layout_width="match_parent"
++                        android:padding="16dp"
++                        android:layout_height="wrap_content">
++
++                        <EditText
++                            android:id="@+id/cpf"
++                            android:layout_width="match_parent"
++                            android:padding="16dp"
++                            android:layout_height="wrap_content"
++                            android:hint="Digite seu CPF"
++                            android:maxLength="11"
++                            android:inputType="number"/>
++
++                    </android.support.design.widget.TextInputLayout>
++
++                    <android.support.design.widget.FloatingActionButton
++                        android:id="@+id/fab_cpf"
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:layout_gravity="center"
++                        android:layout_margin="@dimen/fab_margin"
++                        android:src="@mipmap/ic_next" />
++
++                </LinearLayout>
++
++
++
++
++            </FrameLayout>
++
++
++
++
++    </LinearLayout>
++</TabHost>
+\ No newline at end of file
+Index: app/src/main/res/values-v21/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values-v21/styles.xml	(revision )
++++ app/src/main/res/values-v21/styles.xml	(revision )
+@@ -0,0 +1,9 @@
++<resources>>
++
++    <style name="AppTheme.NoActionBar">
++        <item name="windowActionBar">false</item>
++        <item name="windowNoTitle">true</item>
++        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
++        <item name="android:statusBarColor">@android:color/transparent</item>
++    </style>
++</resources>
+Index: app/src/main/java/com/br/servlist/actEmailSenha.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/br/servlist/actEmailSenha.java	(revision )
++++ app/src/main/java/com/br/servlist/actEmailSenha.java	(revision )
+@@ -0,0 +1,180 @@
++package com.br.servlist;
++
++import android.content.Intent;
++import android.net.Uri;
++import android.os.Bundle;
++import android.support.v7.app.AppCompatActivity;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.Button;
++import android.widget.Toast;
++
++import com.facebook.CallbackManager;
++import com.facebook.FacebookCallback;
++import com.facebook.FacebookException;
++import com.facebook.FacebookSdk;
++import com.facebook.appevents.AppEventsLogger;
++import com.facebook.login.LoginResult;
++import com.facebook.login.widget.LoginButton;
++import com.google.android.gms.appindexing.Action;
++import com.google.android.gms.appindexing.AppIndex;
++import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
++import com.google.android.gms.common.api.GoogleApiClient;
++
++public class actEmailSenha extends AppCompatActivity {
++
++
++    CallbackManager callbackmanager;
++    private LoginButton loginButton;
++    private Button email;
++    /**
++     * ATTENTION: This was auto-generated to implement the App Indexing API.
++     * See https://g.co/AppIndexing/AndroidStudio for more information.
++     */
++    private GoogleApiClient client;
++
++
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++
++        //inicializando o SDK do facebook
++        super.onCreate(savedInstanceState);
++        FacebookSdk.sdkInitialize(getApplicationContext());
++        setContentView(R.layout.act_login_conta);
++        AppEventsLogger.activateApp(this);
++        callbackmanager = CallbackManager.Factory.create();
++
++/*
++        try {
++            PackageInfo info = getPackageManager().getPackageInfo(
++                    "com.br.servlist",
++                    PackageManager.GET_SIGNATURES);
++            for (Signature signature : info.signatures) {
++                MessageDigest md = MessageDigest.getInstance("SHA");
++                md.update(signature.toByteArray());
++                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
++            }
++        } catch (PackageManager.NameNotFoundException e) {
++
++        } catch (NoSuchAlgorithmException e) {
++
++        }*/
++
++
++
++        email = (Button) findViewById(R.id.novo_email);
++
++        //conta do google
++
++        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
++                .requestEmail()
++                .build();
++
++        email.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                //chama nova Activity para entrar com o e-mail.
++
++                Intent intent = new Intent(actEmailSenha.this, ActLoginEmail.class);
++                startActivity(intent);
++
++            }
++        });
++
++        // ATTENTION: This was auto-generated to implement the App Indexing API.
++        // See https://g.co/AppIndexing/AndroidStudio for more information.
++        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
++    }
++
++
++    public View onCreateView(
++            LayoutInflater inflater,
++            ViewGroup container,
++            Bundle savedInstanceState) {
++
++
++        View view = inflater.inflate(R.layout.act_login_conta, container, false);
++
++        loginButton = (LoginButton) view.findViewById(R.id.login_button);
++        loginButton.setReadPermissions("user_friends");
++
++        // Callback registration
++        loginButton.registerCallback(callbackmanager, new FacebookCallback<LoginResult>() {
++            @Override
++            public void onSuccess(LoginResult loginResult) {
++                // App code
++
++                Toast.makeText(getApplicationContext(), "Login Efetuado com Sucesso", Toast.LENGTH_LONG).show();
++            }
++
++            @Override
++            public void onCancel() {
++                // App code
++                Toast.makeText(getApplicationContext(), "Login Cancelado", Toast.LENGTH_LONG).show();
++            }
++
++            @Override
++            public void onError(FacebookException exception) {
++                // App code
++
++                Toast.makeText(getApplicationContext(), "ERRO DE LOGIN", Toast.LENGTH_LONG).show();
++            }
++        });
++
++        return view;
++    }
++
++    @Override
++    public void onActivityResult(int requestCode, int resultCode, Intent data) {
++        super.onActivityResult(requestCode, resultCode, data);
++        CallbackManager callbackManager = null;
++        callbackManager.onActivityResult(requestCode, resultCode, data);
++    }
++
++    public void setSkipLoginCallback(SplashFragment.SkipLoginCallback callback) {
++        SplashFragment.SkipLoginCallback skipLoginCallback = callback;
++    }
++
++
++    @Override
++    public void onStart() {
++        super.onStart();
++
++        // ATTENTION: This was auto-generated to implement the App Indexing API.
++        // See https://g.co/AppIndexing/AndroidStudio for more information.
++        client.connect();
++        Action viewAction = Action.newAction(
++                Action.TYPE_VIEW, // TODO: choose an action type.
++                "actEmailSenha Page", // TODO: Define a title for the content shown.
++                // TODO: If you have web page content that matches this app activity's content,
++                // make sure this auto-generated web page URL is correct.
++                // Otherwise, set the URL to null.
++                Uri.parse("http://host/path"),
++                // TODO: Make sure this auto-generated app deep link URI is correct.
++                Uri.parse("android-app://com.br.servlist/http/host/path")
++        );
++        AppIndex.AppIndexApi.start(client, viewAction);
++    }
++
++    @Override
++    public void onStop() {
++        super.onStop();
++
++        // ATTENTION: This was auto-generated to implement the App Indexing API.
++        // See https://g.co/AppIndexing/AndroidStudio for more information.
++        Action viewAction = Action.newAction(
++                Action.TYPE_VIEW, // TODO: choose an action type.
++                "actEmailSenha Page", // TODO: Define a title for the content shown.
++                // TODO: If you have web page content that matches this app activity's content,
++                // make sure this auto-generated web page URL is correct.
++                // Otherwise, set the URL to null.
++                Uri.parse("http://host/path"),
++                // TODO: Make sure this auto-generated app deep link URI is correct.
++                Uri.parse("android-app://com.br.servlist/http/host/path")
++        );
++        AppIndex.AppIndexApi.end(client, viewAction);
++        client.disconnect();
++    }
++}
+Index: .idea/dictionaries/dougl.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/dictionaries/dougl.xml	(revision )
++++ .idea/dictionaries/dougl.xml	(revision )
+@@ -0,0 +1,7 @@
++<component name="ProjectDictionaryState">
++  <dictionary name="dougl">
++    <words>
++      <w>frase</w>
++    </words>
++  </dictionary>
++</component>
+\ No newline at end of file
+Index: app/src/main/res/values/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/styles.xml	(revision )
++++ app/src/main/res/values/styles.xml	(revision )
+@@ -0,0 +1,20 @@
++<resources>
++
++    <!-- Base application theme. -->
++    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
++        <!-- Customize your theme here. -->
++        <item name="colorPrimary">@color/colorPrimary</item>
++        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
++        <item name="colorAccent">@color/colorAccent</item>
++    </style>
++
++    <style name="AppTheme.NoActionBar">
++        <item name="windowActionBar">false</item>
++        <item name="windowNoTitle">true</item>
++    </style>
++
++    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
++
++    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
++
++</resources>
+Index: app/src/main/res/layout/act_login_email.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/act_login_email.xml	(revision )
++++ app/src/main/res/layout/act_login_email.xml	(revision )
+@@ -0,0 +1,79 @@
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical">
++
++   <android.support.v7.widget.Toolbar
++       android:layout_width="match_parent"
++       android:layout_height="wrap_content"
++       android:id="@+id/toolbar"
++       android:background="@color/colorPrimary"></android.support.v7.widget.Toolbar>
++
++
++    <LinearLayout
++        android:orientation="vertical"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content">
++
++    </LinearLayout>
++
++    <LinearLayout
++        android:orientation="vertical"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content">
++
++        <android.support.design.widget.TextInputLayout
++            android:layout_width="match_parent"
++            android:padding="16dp"
++            android:layout_height="wrap_content">
++
++            <EditText
++                android:id="@+id/email"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:padding="16dp"
++                android:singleLine="true"
++                android:maxLength="25"
++                android:hint="Digite seu email" />
++
++        </android.support.design.widget.TextInputLayout>
++
++        <android.support.design.widget.TextInputLayout
++            android:layout_width="match_parent"
++            android:padding="16dp"
++            android:layout_height="wrap_content">
++
++            <EditText
++                android:id="@+id/senha"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:padding="16dp"
++                android:singleLine="true"
++                android:maxLength="20"
++                android:hint="Digite sua senha" />
++
++        </android.support.design.widget.TextInputLayout>
++
++        <Button
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:text="Cadastrar"
++            android:layout_marginLeft="16dp"
++            android:layout_marginRight="16dp"
++            android:textSize="16sp"
++            android:padding="16dp"/>
++
++
++
++
++    </LinearLayout>
++
++    <LinearLayout
++        android:orientation="vertical"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        >
++
++
++    </LinearLayout>
++</LinearLayout>
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision )
++++ app/src/main/res/values/strings.xml	(revision )
+@@ -0,0 +1,26 @@
++<resources>
++    <string name="app_name">ServList</string>
++    <string name="action_settings">Settings</string>
++    <string name="frase_impacto">Conectando Clientes com Serviços</string>
++    <string name="title_activity_activity_login">ActivityLogin</string>
++    <string name="titulo_apresentacao">Você é um empreendedor ou procura um profissional?</string>
++    <string name="btn_empreendedor">EMPREENDEDOR</string>
++    <string name="btn_profissional">PROFISSIONAL</string>
++    <string name="btn_conta">JÁ POSSUI UMA CONTA?</string>
++    <string name="title_activity_act_empreendedor">actEmpreendedor</string>
++    <string name="txt_apresentacao_reg">FORNEÇA O NOME DA SUA EMPRESA, SEU CPF OU UM CNPJ</string>
++    <string name="txt_nome_reg_empresa">Nome da Empresa</string>
++    <string name="txt_cnpj_reg_emp">CNPJ (Digite apenas números)</string>
++    <string name="txt_cep_reg_emp">CEP</string>
++    <string name="txt_rua_reg_emp">Rua/Avenida</string>
++    <string name="txt_compl_reg_emp">Complemento</string>
++    <string name="txt_num_reg_emp">Número</string>
++    <string name="title_activity_act_registro_user">act_registro_user</string>
++    <string name="etxt_cpf">CPF (Digite apenas números)</string>
++    <string name="title_activity_act_email_senha">actEmailSenha</string>
++    <string name="facebook_app_id">102500600157246</string>
++    <string name="tab_cnpj">CNPJ</string>
++    <string name="tab_cpf">CPF</string>
++    <string name="title_activity_act_login_email">actLoginEmail</string>
++    <string name="title_activity_act_endereco">ActEndereco</string>
++</resources>
+Index: app/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/.gitignore	(revision )
++++ app/.gitignore	(revision )
+@@ -0,0 +1,1 @@
++/build
+Index: app/src/main/res/menu/menu_act_principal.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/menu/menu_act_principal.xml	(revision )
++++ app/src/main/res/menu/menu_act_principal.xml	(revision )
+@@ -0,0 +1,10 @@
++<menu xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    tools:context=".ActivityPrincipal">
++    <item
++        android:id="@+id/action_settings"
++        android:orderInCategory="100"
++        android:title="@string/action_settings"
++        app:showAsAction="never" />
++</menu>
+Index: app/src/androidTest/java/com/br/servlist/ApplicationTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/androidTest/java/com/br/servlist/ApplicationTest.java	(revision )
++++ app/src/androidTest/java/com/br/servlist/ApplicationTest.java	(revision )
+@@ -0,0 +1,13 @@
++package com.br.servlist;
++
++import android.app.Application;
++import android.test.ApplicationTestCase;
++
++/**
++ * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
++ */
++public class ApplicationTest extends ApplicationTestCase<Application> {
++    public ApplicationTest() {
++        super(Application.class);
++    }
++}
+\ No newline at end of file
+Index: gradle.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- gradle.properties	(revision )
++++ gradle.properties	(revision )
+@@ -0,0 +1,18 @@
++# Project-wide Gradle settings.
++
++# IDE (e.g. Android Studio) users:
++# Gradle settings configured through the IDE *will override*
++# any settings specified in this file.
++
++# For more details on how to configure your build environment visit
++# http://www.gradle.org/docs/current/userguide/build_environment.html
++
++# Specifies the JVM arguments used for the daemon process.
++# The setting is particularly useful for tweaking memory settings.
++# Default value: -Xmx10248m -XX:MaxPermSize=256m
++# org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
++
++# When configured, Gradle will run in incubating parallel mode.
++# This option should only be used with decoupled projects. More details, visit
++# http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
++# org.gradle.parallel=true
+\ No newline at end of file
+Index: gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- gradle/wrapper/gradle-wrapper.properties	(revision )
++++ gradle/wrapper/gradle-wrapper.properties	(revision )
+@@ -0,0 +1,6 @@
++#Thu Feb 25 13:15:16 BRT 2016
++distributionBase=GRADLE_USER_HOME
++distributionPath=wrapper/dists
++zipStoreBase=GRADLE_USER_HOME
++zipStorePath=wrapper/dists
++distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(revision )
++++ build.gradle	(revision )
+@@ -0,0 +1,25 @@
++// Top-level build file where you can add configuration options common to all sub-projects/modules.
++
++buildscript {
++    repositories {
++        jcenter()
++
++    }
++    dependencies {
++        classpath 'com.android.tools.build:gradle:1.3.0'
++        classpath 'com.google.gms:google-services:2.0.0-alpha5'
++
++        // NOTE: Do not place your application dependencies here; they belong
++        // in the individual module build.gradle files
++    }
++}
++
++allprojects {
++    repositories {
++        jcenter()
++    }
++}
++
++task clean(type: Delete) {
++    delete rootProject.buildDir
++}
+Index: app/src/main/res/values/dimens.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/dimens.xml	(revision )
++++ app/src/main/res/values/dimens.xml	(revision )
+@@ -0,0 +1,6 @@
++<resources>
++    <!-- Default screen margins, per the Android Design guidelines. -->
++    <dimen name="activity_horizontal_margin">16dp</dimen>
++    <dimen name="activity_vertical_margin">16dp</dimen>
++    <dimen name="fab_margin">16dp</dimen>
++</resources>
+Index: app/src/main/java/com/br/servlist/ActivityQuestion.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/br/servlist/ActivityQuestion.java	(revision )
++++ app/src/main/java/com/br/servlist/ActivityQuestion.java	(revision )
+@@ -0,0 +1,54 @@
++package com.br.servlist;
++
++import android.content.Intent;
++import android.os.Bundle;
++import android.support.v7.app.AppCompatActivity;
++import android.view.View;
++import android.widget.Button;
++import android.widget.ImageButton;
++
++public class ActivityQuestion extends AppCompatActivity {
++
++
++    private Button empreendedor;
++    private Button profissional;
++    private ImageButton conta;
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.act_question);
++
++
++        conta = (ImageButton) findViewById(R.id.ibtn_conta);
++        empreendedor = (Button) findViewById(R.id.btn_empreendedor);
++        profissional = (Button) findViewById(R.id.btn_profissional);
++
++        empreendedor.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++
++                Intent intent = new Intent(ActivityQuestion.this, actCad_EmpValidarCpfCnpj.class);
++                startActivity(intent);
++                finish();
++
++            }
++        });
++
++        conta.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                Intent intent = new Intent(ActivityQuestion.this, actCad_EmpValidarCpfCnpj.class);
++                startActivity(intent);
++            }
++        });
++
++        profissional.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++
++            }
++        });
++    }
++
++}
+Index: app/src/test/java/com/br/servlist/ExampleUnitTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/test/java/com/br/servlist/ExampleUnitTest.java	(revision )
++++ app/src/test/java/com/br/servlist/ExampleUnitTest.java	(revision )
+@@ -0,0 +1,15 @@
++package com.br.servlist;
++
++import org.junit.Test;
++
++import static org.junit.Assert.*;
++
++/**
++ * To work on unit tests, switch the Test Artifact in the Build Variants view.
++ */
++public class ExampleUnitTest {
++    @Test
++    public void addition_isCorrect() throws Exception {
++        assertEquals(4, 2 + 2);
++    }
++}
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(revision )
++++ .idea/modules.xml	(revision )
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/ServList.iml" filepath="$PROJECT_DIR$/ServList.iml" />
++      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/inspectionProfiles/profiles_settings.xml	(revision )
++++ .idea/inspectionProfiles/profiles_settings.xml	(revision )
+@@ -0,0 +1,7 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="PROJECT_PROFILE" value="Project Default" />
++    <option name="USE_PROJECT_PROFILE" value="true" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: ServList.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ServList.iml	(revision )
++++ ServList.iml	(revision )
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module external.linked.project.id="ServList" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="java-gradle" name="Java-Gradle">
++      <configuration>
++        <option name="BUILD_FOLDER_PATH" value="$MODULE_DIR$/build" />
++        <option name="BUILDABLE" value="false" />
++      </configuration>
++    </facet>
++  </component>
++  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.gradle" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: app/src/main/res/values-w820dp/dimens.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values-w820dp/dimens.xml	(revision )
++++ app/src/main/res/values-w820dp/dimens.xml	(revision )
+@@ -0,0 +1,6 @@
++<resources>
++    <!-- Example customization of dimensions originally defined in res/values/dimens.xml
++         (such as screen margins) for screens with more than 820dp of available width. This
++         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
++    <dimen name="activity_horizontal_margin">64dp</dimen>
++</resources>
+Index: app/google-services.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/google-services.json	(revision )
++++ app/google-services.json	(revision )
+@@ -0,0 +1,56 @@
++{
++  "project_info": {
++    "project_id": "servlist-b370d",
++    "project_number": "815470873417",
++    "name": "ServLIST"
++  },
++  "client": [
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:815470873417:android:22e1d4e2989c9fdc",
++        "client_id": "android: com.br.servlist",
++        "client_type": 1,
++        "android_client_info": {
++          "package_name": "com.br.servlist",
++          "certificate_hash": []
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "815470873417-663ifdpeh02gjs55j61vosohp23uob5e.apps.googleusercontent.com",
++          "client_type": 1,
++          "android_info": {
++            "package_name": "com.br.servlist",
++            "certificate_hash": "6FC0115A20AEC89BE868F955C6F9DD2016140DC1"
++          }
++        },
++        {
++          "client_id": "815470873417-2qr9hkuomdi64e395erb2gnoism0tfa2.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [],
++      "services": {
++        "analytics_service": {
++          "status": 1
++        },
++        "cloud_messaging_service": {
++          "status": 1,
++          "apns_config": []
++        },
++        "appinvite_service": {
++          "status": 1,
++          "other_platform_oauth_client": []
++        },
++        "google_signin_service": {
++          "status": 2
++        },
++        "ads_service": {
++          "status": 1
++        }
++      }
++    }
++  ],
++  "client_info": [],
++  "ARTIFACT_VERSION": "1"
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/act_endereco.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/act_endereco.xml	(revision )
++++ app/src/main/res/layout/act_endereco.xml	(revision )
+@@ -0,0 +1,53 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical"
++    xmlns:app="http://schemas.android.com/apk/res-auto">
++
++    <android.support.design.widget.AppBarLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:theme="@style/AppTheme.AppBarOverlay">
++
++        <android.support.v7.widget.Toolbar
++            android:id="@+id/toolbar"
++            android:layout_width="match_parent"
++            android:layout_height="?attr/actionBarSize"
++            android:background="?attr/colorPrimary"
++            app:popupTheme="@style/AppTheme.PopupOverlay" />
++
++    </android.support.design.widget.AppBarLayout>
++
++
++    <TextView
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="Informe seu CEP para fazer a busca, ou adicione abaixo o seu endereço"
++        android:padding="16dp"
++        android:textSize="22sp"/>
++    <android.support.design.widget.TextInputLayout
++        android:layout_width="match_parent"
++        android:padding="16dp"
++        android:layout_height="wrap_content">
++
++    <EditText
++        android:id="@+id/cep"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:padding="16dp"
++        android:singleLine="true"
++        android:maxLength="8"
++        android:inputType="number"
++        android:hint="CEP" />
++    </android.support.design.widget.TextInputLayout>
++
++    <android.support.design.widget.FloatingActionButton
++        android:id="@+id/fab"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_gravity="center"
++        android:layout_margin="@dimen/fab_margin"
++        android:src="@android:drawable/ic_dialog_email" />
++
++</LinearLayout>
+Index: app/src/main/res/layout/act_question.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/act_question.xml	(revision )
++++ app/src/main/res/layout/act_question.xml	(revision )
+@@ -0,0 +1,93 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:fitsSystemWindows="true"
++    android:orientation="vertical"
++    tools:context="com.br.servlist.ActivityQuestion">
++
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:layout_weight="1"
++        android:background="#E0EEEE"
++        android:orientation="horizontal">
++
++        <TextView
++            android:id="@+id/titulo"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_gravity="center"
++            android:paddingLeft="16dp"
++            android:paddingRight="16dp"
++            android:text="@string/titulo_apresentacao"
++            android:textAlignment="center"
++            android:textSize="25sp" />
++    </LinearLayout>
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:layout_weight="1"
++        android:background="#E0EEEE"
++        android:orientation="vertical">
++
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:layout_weight="1"
++            android:orientation="vertical">
++
++            <Button
++                android:id="@+id/btn_empreendedor"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_gravity="center"
++                android:background="#fff"
++                android:paddingLeft="120dp"
++                android:paddingRight="120dp"
++                android:text="@string/btn_empreendedor" />
++
++            <Button
++                android:id="@+id/btn_profissional"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_gravity="center"
++                android:layout_marginTop="16dp"
++                android:background="#fff"
++                android:paddingLeft="125dp"
++                android:paddingRight="125dp"
++                android:text="@string/btn_profissional" />
++
++        </LinearLayout>
++
++        <FrameLayout
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:layout_weight="1"
++            android:orientation="horizontal">
++
++            <ImageButton
++                android:id="@+id/ibtn_conta"
++                android:layout_width="match_parent"
++                android:layout_height="match_parent"
++                android:background="@android:color/transparent"
++                android:scaleType="fitCenter"
++                android:src="@drawable/ic_action_name" />
++
++            <TextView
++                android:layout_width="match_parent"
++                android:layout_height="match_parent"
++                android:clickable="false"
++                android:gravity="center"
++                android:text="Você já possui uma conta?"
++                android:textColor="#000"
++                android:textSize="26sp" />
++
++
++        </FrameLayout>
++
++    </LinearLayout>
++</LinearLayout>
+Index: settings.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- settings.gradle	(revision )
++++ settings.gradle	(revision )
+@@ -0,0 +1,1 @@
++include ':app'
+Index: app/src/main/java/com/br/servlist/ActivityPrincipal.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/br/servlist/ActivityPrincipal.java	(revision )
++++ app/src/main/java/com/br/servlist/ActivityPrincipal.java	(revision )
+@@ -0,0 +1,33 @@
++package com.br.servlist;
++
++import android.content.Intent;
++import android.os.Bundle;
++import android.support.design.widget.FloatingActionButton;
++import android.support.v7.app.AppCompatActivity;
++import android.view.View;
++
++public class ActivityPrincipal extends AppCompatActivity {
++
++    private FloatingActionButton floatingActionButton;
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++
++
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.act_home);
++
++
++        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
++        fab.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++
++                Intent intent = new Intent(ActivityPrincipal.this, ActivityQuestion.class);
++                startActivity(intent);
++
++            }
++        });
++    }
++
++}
+Index: app/src/main/res/layout/act_home.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/act_home.xml	(revision )
++++ app/src/main/res/layout/act_home.xml	(revision )
+@@ -0,0 +1,60 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="#E0EEEE"
++    android:fitsSystemWindows="true"
++    android:orientation="vertical"
++    tools:context=".ActivityPrincipal">
++
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:layout_weight="1">
++        android:orientation="vertical"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:layout_weight="1">
++
++
++        <ImageView
++            android:id="@+id/imageView"
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:layout_gravity="center_horizontal"
++            android:src="@mipmap/ic_logo" />
++    </LinearLayout>
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:layout_weight="1"
++        android:orientation="vertical">
++
++        <TextView
++            android:id="@+id/txtFrase"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_gravity="center_horizontal"
++            android:gravity="center_vertical"
++            android:paddingBottom="80dp"
++            android:paddingLeft="16dp"
++            android:paddingRight="16dp"
++            android:text="@string/frase_impacto"
++            android:textAlignment="center"
++            android:textAppearance="?android:attr/textAppearanceLarge"
++            android:textSize="33sp" />
++
++        <android.support.design.widget.FloatingActionButton
++            android:id="@+id/fab"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++
++            android:layout_gravity="center"
++            android:layout_margin="@dimen/fab_margin"
++            android:src="@mipmap/ic_next" />
++
++    </LinearLayout>
++</LinearLayout>
+Index: app/src/main/java/com/br/servlist/HttpConnection.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/br/servlist/HttpConnection.java	(revision )
++++ app/src/main/java/com/br/servlist/HttpConnection.java	(revision )
+@@ -0,0 +1,53 @@
++package com.br.servlist;
++
++
++import org.apache.http.HttpResponse;
++import org.apache.http.NameValuePair;
++import org.apache.http.client.ClientProtocolException;
++import org.apache.http.client.HttpClient;
++import org.apache.http.client.entity.UrlEncodedFormEntity;
++import org.apache.http.client.methods.HttpPost;
++import org.apache.http.impl.client.DefaultHttpClient;
++import org.apache.http.message.BasicNameValuePair;
++import org.apache.http.util.EntityUtils;
++
++import java.io.IOException;
++import java.util.ArrayList;
++
++/**
++ * Created by dougl on 29/02/2016.
++ */
++public class HttpConnection {
++
++    public static String getSetDataWeb(String url, String metodo, String data) {
++
++        HttpClient httpClient = new DefaultHttpClient();
++        HttpPost httpPost = new HttpPost(url);
++        String answer = "";
++
++        try {
++            ArrayList<NameValuePair> valores = new ArrayList<NameValuePair>();
++            valores.add(new BasicNameValuePair("metodo", metodo));
++            valores.add(new BasicNameValuePair("json", data));
++
++            httpPost.setEntity(new UrlEncodedFormEntity(valores));
++            HttpResponse response = httpClient.execute(httpPost);
++            answer = EntityUtils.toString(response.getEntity());
++
++        } catch (NullPointerException e) {
++            e.printStackTrace();
++        } catch (ClientProtocolException e) {
++            e.printStackTrace();
++        } catch (IOException e) {
++            e.printStackTrace();
++        }
++
++        return (answer);
++
++
++    }
++
++
++}
++
++
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/encodings.xml	(revision )
++++ .idea/encodings.xml	(revision )
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="PROJECT" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/layout/act_login_conta.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/act_login_conta.xml	(revision )
++++ app/src/main/res/layout/act_login_conta.xml	(revision )
+@@ -0,0 +1,78 @@
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical">
++
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:orientation="vertical">
++
++
++
++        <TextView
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:layout_marginTop="16dp"
++            android:padding="16dp"
++            android:text="CRIE UMA CONTA"
++            android:textAlignment="center"
++            android:textSize="26sp" />
++
++        <TextView
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:text="Aqui você cria sua conta no ServLIST. Você pode entrar com uma conta do Facebook, do Google ou pode entrar com um e-mail"
++            android:padding="20dp"
++            android:textSize="20sp"/>
++
++
++        </LinearLayout>
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:orientation="vertical">
++
++        <com.facebook.login.widget.LoginButton
++            android:id="@+id/login_button"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_gravity="center"
++            android:layout_marginTop="30dp"
++            android:layout_marginLeft="19dp"
++            android:layout_marginRight="19dp"
++            android:padding="16dp"
++            android:paddingTop="12sp"
++            android:paddingBottom="12sp"
++            android:textAlignment="center" />
++
++        <com.google.android.gms.common.SignInButton
++            android:id="@+id/sign_in_button"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_gravity="center"
++            android:paddingTop="12sp"
++            android:paddingBottom="12sp"
++            android:padding="16dp"
++            android:textAlignment="center">
++
++        </com.google.android.gms.common.SignInButton>
++        <Button
++            android:layout_width="match_parent"
++            android:id="@+id/novo_email"
++            android:layout_height="wrap_content"
++            android:layout_gravity="center"
++            android:padding="16dp"
++            android:layout_marginLeft="20dp"
++            android:paddingTop="12sp"
++            android:paddingBottom="12sp"
++            android:layout_marginRight="20dp"
++            android:textAlignment="center"
++            android:text="Entre com seu E-mail"
++            android:background="@layout/botao_layouts"/>
++
++
++    </LinearLayout>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/br/servlist/Validacoes.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/br/servlist/Validacoes.java	(revision )
++++ app/src/main/java/com/br/servlist/Validacoes.java	(revision )
+@@ -0,0 +1,162 @@
++package com.br.servlist;
++
++import java.util.InputMismatchException;
++
++/**
++ * Created by dougl on 01/03/2016.
++ */
++public class Validacoes {
++
++    public static String imprimeCNPJ(String CNPJ) {
++        // máscara do CNPJ: 99.999.999.9999-99
++        return (CNPJ.substring(0, 2) + "." + CNPJ.substring(2, 5) + "." + CNPJ.substring(5, 8) + "." + CNPJ.substring(8, 12) + "-" + CNPJ.substring(12, 14));
++    }
++
++    public boolean isCnpj(String CNPJ) {
++
++
++        if ((CNPJ.equals("00000000000000") || CNPJ.equals("11111111111111") ||
++                CNPJ.equals("22222222222222") ||
++                CNPJ.equals("33333333333333") ||
++                CNPJ.equals("44444444444444") ||
++                CNPJ.equals("55555555555555") ||
++                CNPJ.equals("66666666666666") ||
++                CNPJ.equals("77777777777777") ||
++                CNPJ.equals("88888888888888") ||
++                CNPJ.equals("99999999999999") ||
++                (CNPJ.length() != 14))) {
++
++
++            return (false);
++
++
++        }else {
++
++            char dig13, dig14;
++            int sm, i, r, num, peso;
++
++            try {
++                sm = 0;
++                peso = 2;
++
++                for (i = 11; i >= 0; i--) {
++                    // converte o i-ésimo caractere do CNPJ em um número:
++                    // por exemplo, transforma o caractere '0' no inteiro 0 /
++                    //  (48 eh a posição de '0' na tabela ASCII)
++                    num = CNPJ.charAt(i) - 48;
++                    sm = sm + (num * peso);
++                    peso = peso + 1;
++                    if (peso == 10) {
++                        peso = 2;
++                    }
++                }
++
++                r = sm % 11;
++                if ((r == 0) || (r == 1)) {
++                    dig13 = '0';
++                } else {
++                    dig13 = (char) ((11 - r) + 48);
++                }
++
++
++                // Calculo do 2o. Digito Verificador
++                sm = 0;
++                peso = 2;
++                for (i = 12; i >= 0; i--) {
++                    num = CNPJ.charAt(i) - 48;
++                    sm = sm + (num * peso);
++                    peso = peso + 1;
++                    if (peso == 10) {
++                        peso = 2;
++                    }
++                }
++                r = sm % 11;
++
++                if ((r == 0) || (r == 1)) {
++                    dig14 = '0';
++                } else {
++                    dig14 = (char) ((11 - r) + 48);
++                }
++                // Verifica se os dígitos calculados conferem com os dígitos informados.
++                return (dig13 == CNPJ.charAt(12)) && (dig14 == CNPJ.charAt(13));
++            } catch (InputMismatchException erro) {
++                return (false);
++            }
++        }
++    }
++
++
++    public boolean isCPF(String CPF) {
++
++
++        if (CPF.equals("00000000000") ||
++                CPF.equals("11111111111") ||
++                CPF.equals("22222222222") ||
++                CPF.equals("33333333333") ||
++                CPF.equals("44444444444") ||
++                CPF.equals("55555555555") ||
++                CPF.equals("66666666666") ||
++                CPF.equals("77777777777") ||
++                CPF.equals("88888888888") ||
++                CPF.equals("99999999999") ||
++                (CPF.length() != 11))
++            return (false);
++        char dig10, dig11;
++        int sm, i, r, num, peso;
++
++        // "try" - protege o codigo para eventuais erros de conversao de tipo (int)
++        try {
++            // Calculo do 1o. Digito Verificador
++            sm = 0;
++            peso = 10;
++            for (i = 0; i < 9; i++) {
++                // converte o i-esimo caractere do CPF em um numero: // por exemplo, transforma o caractere '0' no inteiro 0 //
++                // (48 eh a posicao de '0' na tabela ASCII)
++
++                num = CPF.charAt(i) - 48;
++                sm = sm + (num * peso);
++                peso = peso - 1;
++            }
++            r = 11 - (sm % 11);
++            if ((r == 10) || (r == 11))
++                dig10 = '0';
++            else dig10 = (char) (r + 48);
++
++            // converte no respectivo caractere numerico // Calculo do 2o. Digito Verificador
++            sm = 0;
++            peso = 11;
++
++            for (i = 0; i < 10; i++) {
++                num = CPF.charAt(i) - 48;
++                sm = sm + (num * peso);
++                peso = peso - 1;
++            }
++            r = 11 - (sm % 11);
++
++            if ((r == 10) || (r == 11))
++                dig11 = '0';
++            else
++                dig11 = (char) (r + 48);
++
++            // Verifica se os digitos calculados conferem com os digitos informados.
++
++            return (dig10 == CPF.charAt(9)) && (dig11 == CPF.charAt(10));
++        } catch (InputMismatchException erro) {
++            return (false);
++        }
++
++    }
++
++    public String imprimeCPF(String CPF) {
++
++        return (CPF.substring(0, 3) + "." + CPF.substring(3, 6) + "." + CPF.substring(6, 9) + "-" + CPF.substring(9, 11));
++    }
++
++
++}
++
++
++
++
++
++
+Index: app/app.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/app.iml	(revision )
++++ app/app.iml	(revision )
+@@ -0,0 +1,118 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="ServList" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="android-gradle" name="Android-Gradle">
++      <configuration>
++        <option name="GRADLE_PROJECT_PATH" value=":app" />
++      </configuration>
++    </facet>
++    <facet type="android" name="Android">
++      <configuration>
++        <option name="SELECTED_BUILD_VARIANT" value="debug" />
++        <option name="SELECTED_TEST_ARTIFACT" value="_android_test_" />
++        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
++        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
++        <option name="ASSEMBLE_TEST_TASK_NAME" value="assembleDebugAndroidTest" />
++        <option name="COMPILE_JAVA_TEST_TASK_NAME" value="compileDebugAndroidTestSources" />
++        <afterSyncTasks>
++          <task>generateDebugAndroidTestSources</task>
++          <task>generateDebugSources</task>
++        </afterSyncTasks>
++        <option name="ALLOW_USER_CONFIGURATION" value="false" />
++        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
++        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
++        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res" />
++        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
++      </configuration>
++    </facet>
++  </component>
++  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
++    <output url="file://$MODULE_DIR$/build/intermediates/classes/debug" />
++    <output-test url="file://$MODULE_DIR$/build/intermediates/classes/androidTest/debug" />
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/debug" isTestSource="false" generated="true" />
++      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/debug" isTestSource="false" generated="true" />
++      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
++      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/debug" isTestSource="false" generated="true" />
++      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/google-services/debug" type="java-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/debug" type="java-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/debug" type="java-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/debug" isTestSource="true" generated="true" />
++      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/debug" isTestSource="true" generated="true" />
++      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/debug" isTestSource="true" generated="true" />
++      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/debug" isTestSource="true" generated="true" />
++      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/debug" type="java-test-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/debug" type="java-test-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/src/debug/res" type="java-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/src/debug/resources" type="java-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/src/debug/assets" type="java-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/src/debug/aidl" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/src/debug/java" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/src/debug/jni" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/src/debug/rs" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/src/main/res" type="java-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/src/main/assets" type="java-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/src/main/aidl" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/src/main/jni" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/src/main/rs" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/res" type="java-test-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/resources" type="java-test-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/assets" type="java-test-resource" />
++      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/aidl" isTestSource="true" />
++      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/java" isTestSource="true" />
++      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/jni" isTestSource="true" />
++      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/rs" isTestSource="true" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.2.1/jars" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/customtabs/23.2.1/jars" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.11.0/jars" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.Pierry/SimpleToast/v1.9/jars" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.3.0/jars" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/8.3.0/jars" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.3.0/jars" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/jars" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/jars" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-support" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/pre-dexed" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/restart-dex" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
++      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
++      <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
++      <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
++    </content>
++    <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
++    <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" exported="" name="support-v4-23.2.1" level="project" />
++    <orderEntry type="library" exported="" name="SimpleToast-v1.9" level="project" />
++    <orderEntry type="library" exported="" name="bolts-applinks-1.4.0" level="project" />
++    <orderEntry type="library" exported="" name="android-iconify-1.0.9" level="project" />
++    <orderEntry type="library" exported="" name="play-services-measurement-8.3.0" level="project" />
++    <orderEntry type="library" exported="" name="bolts-android-1.4.0" level="project" />
++    <orderEntry type="library" exported="" name="bolts-tasks-1.4.0" level="project" />
++    <orderEntry type="library" exported="" name="customtabs-23.2.1" level="project" />
++    <orderEntry type="library" exported="" name="design-23.0.1" level="project" />
++    <orderEntry type="library" exported="" name="support-annotations-23.2.1" level="project" />
++    <orderEntry type="library" exported="" name="appcompat-v7-23.0.1" level="project" />
++    <orderEntry type="library" exported="" name="play-services-base-8.3.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-appindexing-8.3.0" level="project" />
++    <orderEntry type="library" exported="" name="play-services-auth-8.3.0" level="project" />
++    <orderEntry type="library" exported="" name="facebook-android-sdk-4.11.0" level="project" />
++    <orderEntry type="library" exported="" name="cardview-v7-23.2.1" level="project" />
++    <orderEntry type="library" exported="" name="play-services-basement-8.3.0" level="project" />
++    <orderEntry type="library" exported="" name="org.apache.http.legacy-android-23" level="project" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision )
++++ .idea/misc.xml	(revision )
+@@ -0,0 +1,46 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="EntryPointsManager">
++    <entry_points version="2.0" />
++  </component>
++  <component name="NullableNotNullManager">
++    <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
++    <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />
++    <option name="myNullables">
++      <value>
++        <list size="4">
++          <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.Nullable" />
++          <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nullable" />
++          <item index="2" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.Nullable" />
++          <item index="3" class="java.lang.String" itemvalue="android.support.annotation.Nullable" />
++        </list>
++      </value>
++    </option>
++    <option name="myNotNulls">
++      <value>
++        <list size="4">
++          <item index="0" class="java.lang.String" itemvalue="org.jetbrains.annotations.NotNull" />
++          <item index="1" class="java.lang.String" itemvalue="javax.annotation.Nonnull" />
++          <item index="2" class="java.lang.String" itemvalue="edu.umd.cs.findbugs.annotations.NonNull" />
++          <item index="3" class="java.lang.String" itemvalue="android.support.annotation.NonNull" />
++        </list>
++      </value>
++    </option>
++  </component>
++  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
++    <OptionsSetting value="true" id="Add" />
++    <OptionsSetting value="true" id="Remove" />
++    <OptionsSetting value="true" id="Checkout" />
++    <OptionsSetting value="true" id="Update" />
++    <OptionsSetting value="true" id="Status" />
++    <OptionsSetting value="true" id="Edit" />
++    <ConfirmationsSetting value="0" id="Add" />
++    <ConfirmationsSetting value="0" id="Remove" />
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/build/classes" />
++  </component>
++  <component name="ProjectType">
++    <option name="id" value="Android" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision )
++++ app/src/main/AndroidManifest.xml	(revision )
+@@ -0,0 +1,76 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="com.br.servlist">
++
++    <uses-permission android:name="android.permission.INTERNET" />
++
++    <dependency>
++        <groupId>
++            com.facebook.android
++        </groupId>
++
++        <artifactId>
++            facebook-android-sdk
++        </artifactId>
++
++        <version>
++            PUT_LATEST_VERSION_HERE
++        </version>
++    </dependency>
++
++    <application
++        android:allowBackup="true"
++        android:icon="@mipmap/ic_launcher"
++        android:label="@string/app_name"
++        android:supportsRtl="true"
++        android:theme="@style/AppTheme">
++        <meta-data
++            android:name="com.facebook.sdk.ApplicationId"
++            android:value="@string/facebook_app_id" />
++
++        <activity
++            android:name=".ActivityPrincipal"
++            android:label="@string/app_name"
++            android:theme="@style/AppTheme.NoActionBar">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++        <activity
++            android:name=".ActivityQuestion"
++            android:label="@string/title_activity_activity_login"
++            android:theme="@style/AppTheme.NoActionBar" />
++        <activity
++            android:name=".actCad_EmpValidarCpfCnpj"
++            android:label="@string/title_activity_act_empreendedor"
++            android:theme="@style/AppTheme.NoActionBar" />
++        <activity
++            android:name=".actEmailSenha"
++            android:label="@string/title_activity_act_email_senha"
++            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
++        <activity
++            android:name="com.facebook.FacebookActivity"
++            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
++            android:label="@string/app_name"
++            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
++        <activity
++            android:name=".ActLoginEmail"
++            android:label="@string/title_activity_act_login_email"
++            android:theme="@style/AppTheme.NoActionBar" />
++        <!--
++             ATTENTION: This was auto-generated to add Google Play services to your project for
++             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
++        -->
++        <meta-data
++            android:name="com.google.android.gms.version"
++            android:value="@integer/google_play_services_version" />
++
++        <activity
++            android:name=".ActEndereco"
++            android:label="@string/title_activity_act_endereco"
++            android:theme="@style/AppTheme.NoActionBar"></activity>
++    </application>
++
++</manifest>
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision )
++++ .idea/gradle.xml	(revision )
+@@ -0,0 +1,18 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GradleSettings">
++    <option name="linkedExternalProjectsSettings">
++      <GradleProjectSettings>
++        <option name="distributionType" value="DEFAULT_WRAPPED" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="gradleJvm" value="1.7" />
++        <option name="modules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++            <option value="$PROJECT_DIR$/app" />
++          </set>
++        </option>
++      </GradleProjectSettings>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: gradlew.bat
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- gradlew.bat	(revision )
++++ gradlew.bat	(revision )
+@@ -0,0 +1,90 @@
++@if "%DEBUG%" == "" @echo off
++@rem ##########################################################################
++@rem
++@rem  Gradle startup script for Windows
++@rem
++@rem ##########################################################################
++
++@rem Set local scope for the variables with windows NT shell
++if "%OS%"=="Windows_NT" setlocal
++
++@rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
++set DEFAULT_JVM_OPTS=
++
++set DIRNAME=%~dp0
++if "%DIRNAME%" == "" set DIRNAME=.
++set APP_BASE_NAME=%~n0
++set APP_HOME=%DIRNAME%
++
++@rem Find java.exe
++if defined JAVA_HOME goto findJavaFromJavaHome
++
++set JAVA_EXE=java.exe
++%JAVA_EXE% -version >NUL 2>&1
++if "%ERRORLEVEL%" == "0" goto init
++
++echo.
++echo ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
++echo.
++echo Please set the JAVA_HOME variable in your environment to match the
++echo location of your Java installation.
++
++goto fail
++
++:findJavaFromJavaHome
++set JAVA_HOME=%JAVA_HOME:"=%
++set JAVA_EXE=%JAVA_HOME%/bin/java.exe
++
++if exist "%JAVA_EXE%" goto init
++
++echo.
++echo ERROR: JAVA_HOME is set to an invalid directory: %JAVA_HOME%
++echo.
++echo Please set the JAVA_HOME variable in your environment to match the
++echo location of your Java installation.
++
++goto fail
++
++:init
++@rem Get command-line arguments, handling Windowz variants
++
++if not "%OS%" == "Windows_NT" goto win9xME_args
++if "%@eval[2+2]" == "4" goto 4NT_args
++
++:win9xME_args
++@rem Slurp the command line arguments.
++set CMD_LINE_ARGS=
++set _SKIP=2
++
++:win9xME_args_slurp
++if "x%~1" == "x" goto execute
++
++set CMD_LINE_ARGS=%*
++goto execute
++
++:4NT_args
++@rem Get arguments from the 4NT Shell from JP Software
++set CMD_LINE_ARGS=%$
++
++:execute
++@rem Setup the command line
++
++set CLASSPATH=%APP_HOME%\gradle\wrapper\gradle-wrapper.jar
++
++@rem Execute Gradle
++"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain %CMD_LINE_ARGS%
++
++:end
++@rem End local scope for the variables with windows NT shell
++if "%ERRORLEVEL%"=="0" goto mainEnd
++
++:fail
++rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of
++rem the _cmd.exe /c_ return code!
++if  not "" == "%GRADLE_EXIT_CONSOLE%" exit 1
++exit /b 1
++
++:mainEnd
++if "%OS%"=="Windows_NT" endlocal
++
++:omega
+Index: gradlew
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- gradlew	(revision )
++++ gradlew	(revision )
+@@ -0,0 +1,164 @@
++#!/usr/bin/env bash
++
++##############################################################################
++##
++##  Gradle start up script for UN*X
++##
++##############################################################################
++
++# Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
++DEFAULT_JVM_OPTS=""
++
++APP_NAME="Gradle"
++APP_BASE_NAME=`basename "$0"`
++
++# Use the maximum available, or set MAX_FD != -1 to use that value.
++MAX_FD="maximum"
++
++warn ( ) {
++    echo "$*"
++}
++
++die ( ) {
++    echo
++    echo "$*"
++    echo
++    exit 1
++}
++
++# OS specific support (must be 'true' or 'false').
++cygwin=false
++msys=false
++darwin=false
++case "`uname`" in
++  CYGWIN* )
++    cygwin=true
++    ;;
++  Darwin* )
++    darwin=true
++    ;;
++  MINGW* )
++    msys=true
++    ;;
++esac
++
++# For Cygwin, ensure paths are in UNIX format before anything is touched.
++if $cygwin ; then
++    [ -n "$JAVA_HOME" ] && JAVA_HOME=`cygpath --unix "$JAVA_HOME"`
++fi
++
++# Attempt to set APP_HOME
++# Resolve links: $0 may be a link
++PRG="$0"
++# Need this for relative symlinks.
++while [ -h "$PRG" ] ; do
++    ls=`ls -ld "$PRG"`
++    link=`expr "$ls" : '.*-> \(.*\)$'`
++    if expr "$link" : '/.*' > /dev/null; then
++        PRG="$link"
++    else
++        PRG=`dirname "$PRG"`"/$link"
++    fi
++done
++SAVED="`pwd`"
++cd "`dirname \"$PRG\"`/" >&-
++APP_HOME="`pwd -P`"
++cd "$SAVED" >&-
++
++CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
++
++# Determine the Java command to use to start the JVM.
++if [ -n "$JAVA_HOME" ] ; then
++    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
++        # IBM's JDK on AIX uses strange locations for the executables
++        JAVACMD="$JAVA_HOME/jre/sh/java"
++    else
++        JAVACMD="$JAVA_HOME/bin/java"
++    fi
++    if [ ! -x "$JAVACMD" ] ; then
++        die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME
++
++Please set the JAVA_HOME variable in your environment to match the
++location of your Java installation."
++    fi
++else
++    JAVACMD="java"
++    which java >/dev/null 2>&1 || die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
++
++Please set the JAVA_HOME variable in your environment to match the
++location of your Java installation."
++fi
++
++# Increase the maximum file descriptors if we can.
++if [ "$cygwin" = "false" -a "$darwin" = "false" ] ; then
++    MAX_FD_LIMIT=`ulimit -H -n`
++    if [ $? -eq 0 ] ; then
++        if [ "$MAX_FD" = "maximum" -o "$MAX_FD" = "max" ] ; then
++            MAX_FD="$MAX_FD_LIMIT"
++        fi
++        ulimit -n $MAX_FD
++        if [ $? -ne 0 ] ; then
++            warn "Could not set maximum file descriptor limit: $MAX_FD"
++        fi
++    else
++        warn "Could not query maximum file descriptor limit: $MAX_FD_LIMIT"
++    fi
++fi
++
++# For Darwin, add options to specify how the application appears in the dock
++if $darwin; then
++    GRADLE_OPTS="$GRADLE_OPTS \"-Xdock:name=$APP_NAME\" \"-Xdock:icon=$APP_HOME/media/gradle.icns\""
++fi
++
++# For Cygwin, switch paths to Windows format before running java
++if $cygwin ; then
++    APP_HOME=`cygpath --path --mixed "$APP_HOME"`
++    CLASSPATH=`cygpath --path --mixed "$CLASSPATH"`
++
++    # We build the pattern for arguments to be converted via cygpath
++    ROOTDIRSRAW=`find -L / -maxdepth 1 -mindepth 1 -type d 2>/dev/null`
++    SEP=""
++    for dir in $ROOTDIRSRAW ; do
++        ROOTDIRS="$ROOTDIRS$SEP$dir"
++        SEP="|"
++    done
++    OURCYGPATTERN="(^($ROOTDIRS))"
++    # Add a user-defined pattern to the cygpath arguments
++    if [ "$GRADLE_CYGPATTERN" != "" ] ; then
++        OURCYGPATTERN="$OURCYGPATTERN|($GRADLE_CYGPATTERN)"
++    fi
++    # Now convert the arguments - kludge to limit ourselves to /bin/sh
++    i=0
++    for arg in "$@" ; do
++        CHECK=`echo "$arg"|egrep -c "$OURCYGPATTERN" -`
++        CHECK2=`echo "$arg"|egrep -c "^-"`                                 ### Determine if an option
++
++        if [ $CHECK -ne 0 ] && [ $CHECK2 -eq 0 ] ; then                    ### Added a condition
++            eval `echo args$i`=`cygpath --path --ignore --mixed "$arg"`
++        else
++            eval `echo args$i`="\"$arg\""
++        fi
++        i=$((i+1))
++    done
++    case $i in
++        (0) set -- ;;
++        (1) set -- "$args0" ;;
++        (2) set -- "$args0" "$args1" ;;
++        (3) set -- "$args0" "$args1" "$args2" ;;
++        (4) set -- "$args0" "$args1" "$args2" "$args3" ;;
++        (5) set -- "$args0" "$args1" "$args2" "$args3" "$args4" ;;
++        (6) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" ;;
++        (7) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" ;;
++        (8) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" "$args7" ;;
++        (9) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" "$args7" "$args8" ;;
++    esac
++fi
++
++# Split up the JVM_OPTS And GRADLE_OPTS values into an array, following the shell quoting and substitution rules
++function splitJvmOpts() {
++    JVM_OPTS=("$@")
++}
++eval splitJvmOpts $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS
++JVM_OPTS[${#JVM_OPTS[*]}]="-Dorg.gradle.appname=$APP_BASE_NAME"
++
++exec "$JAVACMD" "${JVM_OPTS[@]}" -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain "$@"
+Index: .idea/.name
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.name	(revision )
++++ .idea/.name	(revision )
+@@ -0,0 +1,1 @@
++ServList
+\ No newline at end of file
